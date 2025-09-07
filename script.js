@@ -194,6 +194,9 @@ function typeWriter(element, text, speed = 100) {
             element.innerHTML += text.charAt(i);
             i++;
             setTimeout(type, speed);
+        } else {
+            // After typing is complete, add the highlight class back
+            element.innerHTML = `<span class="highlight">${text}</span>`;
         }
     }
     
@@ -204,12 +207,10 @@ function typeWriter(element, text, speed = 100) {
 window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        // Only run typing animation on first load
-        if (!sessionStorage.getItem('typingAnimationShown')) {
-            typeWriter(heroTitle, originalText, 50);
-            sessionStorage.setItem('typingAnimationShown', 'true');
-        }
+        // Get only the text content, not the HTML
+        const originalText = heroTitle.textContent;
+        // Run typing animation every time the page loads
+        typeWriter(heroTitle, originalText, 50);
     }
 });
 
