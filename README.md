@@ -11,7 +11,7 @@ Featured work is limited to repositories that can be opened:
 - [Commerce API](https://github.com/a-mfarghly/Ecommerce-site-Backend-main)
 - [Pharmacy app](https://github.com/a-mfarghly/pharmacy-management-may-12)
 
-The contact form opens the visitor's email app. It does not send mail by itself. The CV at `assets/amr-mahmoud-cv.pdf` is a public project record and does not include employers, a degree, or certifications.
+The contact form opens the visitor's email app. It does not send mail by itself. Two CVs are available for download: `assets/amr-mahmoud-frontend-cv.pdf` and `assets/amr-mahmoud-odoo-cv.pdf`. LinkedIn is [amr-mahmoud-885053279](https://www.linkedin.com/in/amr-mahmoud-885053279/).
 
 ## Run locally
 
