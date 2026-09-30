@@ -3,389 +3,550 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amr Mahmoud - Portfolio</title>
+    <title>Amr Mahmoud | React.js Developer</title>
+    <meta
+      name="description"
+      content="Amr Mahmoud is a React.js developer in Assiut, Egypt. He builds accessible, responsive interfaces and treats web security as part of the product."
+    />
+    <meta name="theme-color" content="#0b1b33" />
+    <meta property="og:title" content="Amr Mahmoud | React.js Developer" />
+    <meta
+      property="og:description"
+      content="Accessible, responsive, security-conscious web interfaces. Public work, real repositories, and working demos."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Amr Mahmoud | React.js Developer" />
+    <meta
+      name="twitter:description"
+      content="Accessible, responsive, security-conscious web interfaces from Assiut, Egypt."
+    />
+    <meta name="twitter:image" content="assets/og.png" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <script>
+      try {
+        var savedTheme = localStorage.getItem("theme");
+        var theme =
+          savedTheme ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {}
+    </script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="#home">Portfolio</a>
-        </div>
-        <div class="nav-menu" id="nav-menu">
-          <a href="#home" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <div class="nav-toggle" id="nav-toggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-        <button class="theme-toggle" id="theme-toggle">
-          <i class="fas fa-moon"></i>
-        </button>
-      </div>
-    </nav>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Hi, I'm <span class="highlight">Amr Mahmoud</span>
-          </h1>
-          <h2 class="hero-subtitle">
-            Front-End Developer (React.js) &Cyber Security Trainer
-          </h2>
-          <p class="hero-description">
-            I create responsive, functional, and user-focused web experiences
-            that bring ideas to life, with a strong foundation in Front-End
-            development, a growing expertise in Back-End technologies, and
-            valuable experience in Cyber Security to ensure secure digital
-            solutions.
+    <header class="topbar" id="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#home">
+          <span class="mark" aria-hidden="true">AM</span>
+          <span class="brand-text">Amr Mahmoud<small>Portfolio</small></span>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu" aria-label="Primary">
+          <a class="nav-link" href="#work">Work</a>
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <button
+            class="icon-btn"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark theme"
+          >
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg>
+          </button>
+          <a class="btn btn-primary nav-cta" href="#contact">Contact</a>
+          <button
+            class="icon-btn nav-toggle"
+            id="nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="nav-menu"
+            aria-expanded="false"
+          >
+            <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="page">
+      <section class="hero fade" id="home">
+        <span class="orb orb-a" aria-hidden="true"></span>
+        <span class="orb orb-b" aria-hidden="true"></span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow hero-eyebrow">Front-end · Assiut</p>
+            <h1>Amr Mahmoud</h1>
+            <p class="hero-lede">
+              React.js developer building accessible, responsive, and
+              security-conscious web experiences.
+            </p>
+            <div class="hero-chips">
+              <span class="hero-chip"><i class="live" aria-hidden="true"></i> Open to front-end roles</span>
+              <span class="hero-chip">React and Next.js</span>
+              <span class="hero-chip">Web security</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-light" href="#work">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                View my work
+              </a>
+              <a class="btn btn-glass" href="assets/amr-mahmoud-cv.pdf" download>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 19h14" /></svg>
+                Download CV
+              </a>
+            </div>
+          </div>
+          <figure class="portrait">
+            <img
+              src="my-photo.png"
+              alt="Amr Mahmoud, Front-End Developer"
+              width="488"
+              height="361"
+            />
+          </figure>
+        </div>
+
+        <div class="kpis">
+          <a class="kpi hl" href="https://github.com/a-mfarghly" target="_blank" rel="noopener noreferrer">
+            <span class="k-lbl">Public repositories</span>
+            <b data-count="31">31</b>
+            <span class="k-sub">Listed on GitHub as a-mfarghly</span>
+          </a>
+          <a class="kpi" href="#work">
+            <span class="k-lbl">Live demos</span>
+            <b data-count="2">2</b>
+            <span class="k-sub">Dashboard and Fresh Cart both respond</span>
+          </a>
+          <a class="kpi" href="#work">
+            <span class="k-lbl">Featured projects</span>
+            <b data-count="4">4</b>
+            <span class="k-sub">Only work with a public repository</span>
+          </a>
+          <div class="kpi">
+            <span class="k-lbl">Building in public</span>
+            <b>2024</b>
+            <span class="k-sub">GitHub profile opened in January</span>
+          </div>
+        </div>
+      </section>
+
+      <p class="strip fade" style="--d: 2">
+        <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Redux</span><span>Express</span><span>MongoDB</span><span>Odoo</span><span>Docker</span>
+      </p>
+
+      <section class="block" id="work">
+        <div class="section-head fade" style="--d: 1">
+          <div>
+            <p class="eyebrow">Evidence</p>
+            <h2>Selected work</h2>
+          </div>
+          <p>
+            These four repositories are the ones I want a recruiter to open.
+            Descriptions match the code and the READMEs, and a live button
+            appears only when the public URL responded.
           </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-          </div>
         </div>
-        <img src="my-photo.png" alt="" class="hero-image" />
-      </div>
-      <div class="scroll-indicator">
-        <div class="scroll-arrow"></div>
-      </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              I combine a solid background in IT and networking with strong
-              Front-End development skills, delivering secure, user-friendly,
-              and responsive digital solutions that stand out.
-            </p>
-
-            <p>
-              I'm a passionate Front-End Developer (React.js) with 2+ years of
-              experience creating impactful digital solutions. Currently, I'm
-              expanding my expertise into Back-End development (Node.js) and
-              enhancing my knowledge in Cyber Security, with a strong focus on
-              modern web technologies and user experience.
-            </p>
-
-            <p>
-              When I'm not coding, I enjoy exploring new technologies,
-              contributing to open-source projects, and sharing knowledge with
-              the developer community.
-            </p>
-
-            <div class="about-stats">
-              <div class="stat">
-                <h3>50+</h3>
-                <p>Projects Completed</p>
-              </div>
-              <div class="stat">
-                <h3>3+</h3>
-                <p>Years Experience</p>
-              </div>
-              <div class="stat">
-                <h3>100%</h3>
-                <p>Client Satisfaction</p>
-              </div>
+        <div class="projects">
+          <article class="card project fade" style="--d: 2; --tone: #1d5bd8; --tint: #e8f0fd">
+            <div class="shot">
+              <img
+                src="assets/dashboard-preview.webp"
+                alt="Admin dashboard overview with user and revenue stats, charts, and a users table"
+                width="1200"
+                height="750"
+                loading="lazy"
+              />
             </div>
-          </div>
-          <div class="about-image">
-            <div class="about-avatar">
-              <i class="fas fa-code"></i>
+            <div class="card-head">
+              <span class="tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5h7v6H4zM13 5h7v4h-7zM13 11h7v8h-7zM4 13h7v6H4z" /></svg>
+              </span>
+              <div>
+                <h3>Admin dashboard</h3>
+                <p>Front-end internship task · September 2026</p>
+              </div>
+              <span class="chip"><i></i> Live</span>
             </div>
-          </div>
+            <p class="body">
+              I built a responsive Next.js admin dashboard. Sign-in is mocked
+              on purpose: one demo account, a local session, and a route guard.
+              The table holds 120 demo records with search, role and status
+              filters, sorting, and pagination. Recharts draws revenue and
+              active users separately. The same table exports to PDF and Excel.
+            </p>
+            <div class="metrics">
+              <div><b>120</b><span>Demo records</span></div>
+              <div><b>2</b><span>Export formats</span></div>
+              <div><b>Mock</b><span>No real backend</span></div>
+            </div>
+            <div class="tech">
+              <span class="chip"><i></i> Next.js</span>
+              <span class="chip"><i></i> React</span>
+              <span class="chip"><i></i> Redux</span>
+              <span class="chip"><i></i> Tailwind</span>
+              <span class="chip"><i></i> Docker</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-tone" href="https://dashboard-task-pi.vercel.app" target="_blank" rel="noopener noreferrer">Live demo</a>
+              <a class="btn btn-ghost" href="https://github.com/a-mfarghly/dashboard-task" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card project fade" style="--d: 3; --tone: #0f766e; --tint: #e6f6f4">
+            <div class="shot">
+              <img
+                src="assets/fresh-cart-preview.webp"
+                alt="Fresh Cart homepage with an electronics and fashion hero"
+                width="1200"
+                height="750"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-head">
+              <span class="tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12zM6 6L5 3H2M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM18 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" /></svg>
+              </span>
+              <div>
+                <h3>Fresh Cart</h3>
+                <p>Next.js storefront · updated February 2026</p>
+              </div>
+              <span class="chip"><i></i> Live</span>
+            </div>
+            <p class="body">
+              A Next.js App Router storefront. The navigation covers home,
+              products, categories, brands, cart, wishlist, login, and signup.
+              Product data is loaded from the RouteMisr API. I am linking the
+              public site from the repository, not the private Vercel project
+              page.
+            </p>
+            <div class="metrics">
+              <div><b>Next.js</b><span>App Router</span></div>
+              <div><b>API</b><span>RouteMisr catalog</span></div>
+              <div><b>Live</b><span>Public Vercel URL</span></div>
+            </div>
+            <div class="tech">
+              <span class="chip"><i></i> Next.js</span>
+              <span class="chip"><i></i> TypeScript</span>
+              <span class="chip"><i></i> Tailwind</span>
+              <span class="chip"><i></i> React</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-tone" href="https://e-commerce3-taupe.vercel.app" target="_blank" rel="noopener noreferrer">Live demo</a>
+              <a class="btn btn-ghost" href="https://github.com/a-mfarghly/e-commerce3" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card project fade" style="--d: 4; --tone: #4f46e5; --tint: #eef0fd">
+            <div class="card-head">
+              <span class="tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h16M18 10v4" /></svg>
+              </span>
+              <div>
+                <h3>Commerce API</h3>
+                <p>Express and MongoDB · November 2025</p>
+              </div>
+              <span class="chip plain"><i></i> Repository</span>
+            </div>
+            <p class="body">
+              The API behind a separate storefront. Express, Mongoose, and JWT
+              cover registration, catalog management, cart, wishlist, and
+              orders. I am not linking a live demo: the published storefront
+              returned 404, and the products endpoint did not return a healthy
+              response when I checked.
+            </p>
+            <div class="metrics">
+              <div><b>JWT</b><span>Auth on the API</span></div>
+              <div><b>MongoDB</b><span>Mongoose models</span></div>
+              <div><b>Code</b><span>No healthy demo</span></div>
+            </div>
+            <div class="tech">
+              <span class="chip"><i></i> Node.js</span>
+              <span class="chip"><i></i> Express</span>
+              <span class="chip"><i></i> MongoDB</span>
+              <span class="chip"><i></i> JWT</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-tone" href="https://github.com/a-mfarghly/Ecommerce-site-Backend-main" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card project fade" style="--d: 5; --tone: #7c3aed; --tint: #f3eefe">
+            <div class="card-head">
+              <span class="tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 3h8l1 4H7zM6 7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2zM10 11v6M14 11v6" /></svg>
+              </span>
+              <div>
+                <h3>Pharmacy app</h3>
+                <p>Odoo 18 module · June 2026</p>
+              </div>
+              <span class="chip plain"><i></i> Repository</span>
+            </div>
+            <p class="body">
+              An installable Odoo 18 app named Pharmacy. It adds a Pharmacy
+              menu and a status bar on the product form so a product template
+              can be marked medicine or not medicine. It depends on Sales,
+              Inventory, and Accounting. There is no public Odoo instance to demo.
+            </p>
+            <div class="metrics">
+              <div><b>Odoo 18</b><span>Installable app</span></div>
+              <div><b>Python</b><span>product.template</span></div>
+              <div><b>Menu</b><span>List and form</span></div>
+            </div>
+            <div class="tech">
+              <span class="chip"><i></i> Python</span>
+              <span class="chip"><i></i> Odoo</span>
+              <span class="chip"><i></i> XML views</span>
+            </div>
+            <div class="actions">
+              <a class="btn btn-tone" href="https://github.com/a-mfarghly/pharmacy-management-may-12" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="container">
-        <h2 class="section-title">Skills & Technologies</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Frontend</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <i class="fab fa-html5"></i>
-                <span>HTML5</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-css3-alt"></i>
-                <span>CSS3</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-js-square"></i>
-                <span>JavaScript</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-react"></i>
-                <span>React</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-vue"></i>
-                <span>Vue.js</span>
-              </div>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Backend</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <i class="fab fa-node-js"></i>
-                <span>Node.js</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <span>MongoDB</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-server"></i>
-                <span>Express.js</span>
-              </div>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Tools & Others</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <i class="fab fa-git-alt"></i>
-                <span>Git</span>
-              </div>
-              <div class="skill-item">
-                <i class="fab fa-docker"></i>
-                <span>Docker</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-cloud"></i>
-                <span>AWS</span>
-              </div>
-              <div class="skill-item">
-                <i class="fas fa-mobile-alt"></i>
-                <span>Responsive Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-shopping-cart"></i>
-            </div>
-            <div class="project-content">
-              <h3>E-Commerce Platform</h3>
-              <p>
-                A full-stack e-commerce solution with React, Node.js, and
-                MongoDB. Features include user authentication, payment
-                processing, and admin dashboard.
-              </p>
-              <div class="project-tech">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-                <span>Stripe</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://a-mfarghly.github.io/portfolio"
-                  class="btn btn-small"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/a-mfarghly/portfolio"
-                  class="btn btn-small btn-outline"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-tasks"></i>
-            </div>
-            <div class="project-content">
-              <h3>Task Management App</h3>
-              <p>
-                A collaborative task management application with real-time
-                updates, drag-and-drop functionality, and team collaboration
-                features.
-              </p>
-              <div class="project-tech">
-                <span>Vue.js</span>
-                <span>Socket.io</span>
-                <span>Express</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://a-mfarghly.github.io/portfolio"
-                  class="btn btn-small"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/a-mfarghly/portfolio"
-                  class="btn btn-small btn-outline"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div class="project-content">
-              <h3>Analytics Dashboard</h3>
-              <p>
-                A comprehensive analytics dashboard with interactive charts,
-                data visualization, and real-time monitoring capabilities.
-              </p>
-              <div class="project-tech">
-                <span>React</span>
-                <span>D3.js</span>
-                <span>Python</span>
-                <span>FastAPI</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://a-mfarghly.github.io/portfolio"
-                  class="btn btn-small"
-                  >Live Demo</a
-                >
-                <a
-                  href="https://github.com/a-mfarghly/portfolio"
-                  class="btn btn-small btn-outline"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-          <div class="contact-info">
-            <h3>Let's work together!</h3>
-            <p>
-              I'm always interested in new opportunities and exciting projects.
-              Feel free to reach out!
+      <section class="block" id="about">
+        <div class="layout">
+          <div class="card fade" style="--d: 1">
+            <p class="eyebrow">About</p>
+            <h2>One role, one supporting specialty</h2>
+            <p class="body">
+              I want front-end work where React is the main tool. The interface
+              has to be responsive, readable, and honest about what it can do.
+              Web security sits beside that: authentication should match the
+              product, and I would rather leave a broken demo off the page than
+              pretend it shipped.
             </p>
-            <div class="contact-details">
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span>mamr32278@gmail.com</span>
+            <p class="body">
+              I also train cybersecurity, and I come from IT and networking.
+              Node and Express show up when a project needs its own API, as in
+              the commerce backend. This page does not list employers, a
+              degree, or certificates. Ask me for that record.
+            </p>
+            <div class="about-actions">
+              <a class="btn btn-primary" href="assets/amr-mahmoud-cv.pdf" download>Download CV</a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/amr-m-farghly-885053279" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+
+          <aside class="card fade" style="--d: 2">
+            <div class="card-head">
+              <span class="tile" style="--tone: #1d5bd8; --tint: #e8f0fd" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 3v2M16 3v2M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" /></svg>
+              </span>
+              <div>
+                <h3>Public timeline</h3>
+                <p>Dates from the repositories, not job titles</p>
               </div>
-              <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>01069513679</span>
+            </div>
+            <ol class="timeline">
+              <li>
+                <span class="date-tile" style="--tone: #1d5bd8; --tint: #e8f0fd"><span>Sep</span><b>2026</b></span>
+                <div>
+                  <a href="https://github.com/a-mfarghly/dashboard-task" target="_blank" rel="noopener noreferrer">Admin dashboard</a>
+                  <p>Internship task with a mocked session and export.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date-tile" style="--tone: #7c3aed; --tint: #f3eefe"><span>Jun</span><b>2026</b></span>
+                <div>
+                  <a href="https://github.com/a-mfarghly/pharmacy-management-may-12" target="_blank" rel="noopener noreferrer">Pharmacy app</a>
+                  <p>Odoo 18 menu and product classification.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date-tile" style="--tone: #0f766e; --tint: #e6f6f4"><span>Feb</span><b>2026</b></span>
+                <div>
+                  <a href="https://github.com/a-mfarghly/e-commerce3" target="_blank" rel="noopener noreferrer">Fresh Cart</a>
+                  <p>Storefront still available on its public URL.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date-tile" style="--tone: #4f46e5; --tint: #eef0fd"><span>Nov</span><b>2025</b></span>
+                <div>
+                  <a href="https://github.com/a-mfarghly/Ecommerce-site-Backend-main" target="_blank" rel="noopener noreferrer">Commerce API</a>
+                  <p>Express, MongoDB, and JWT. No healthy demo.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date-tile" style="--tone: #0891b2; --tint: #e4f6fa"><span>Jan</span><b>2024</b></span>
+                <div>
+                  <a href="https://github.com/a-mfarghly" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+                  <p>31 public repositories since this date.</p>
+                </div>
+              </li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="block" id="skills">
+        <div class="section-head fade" style="--d: 1">
+          <div>
+            <p class="eyebrow">Stack</p>
+            <h2>Tools in these repositories</h2>
+          </div>
+          <p>I left off anything that does not appear in the four projects above.</p>
+        </div>
+        <div class="skills">
+          <article class="card skill fade" style="--d: 2; --tone: #1d5bd8; --tint: #e8f0fd">
+            <span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 20h8M12 18v2" /></svg></span>
+            <h3>Interface</h3>
+            <p>The main work: screens, layout, and the App Router.</p>
+            <div class="tech">
+              <span class="chip"><i></i> React</span>
+              <span class="chip"><i></i> Next.js</span>
+              <span class="chip"><i></i> TypeScript</span>
+              <span class="chip"><i></i> Tailwind</span>
+            </div>
+          </article>
+          <article class="card skill fade" style="--d: 3; --tone: #4f46e5; --tint: #eef0fd">
+            <span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-2" /></svg></span>
+            <h3>Application state</h3>
+            <p>Used on the dashboard for the table, forms, and charts.</p>
+            <div class="tech">
+              <span class="chip"><i></i> Redux Toolkit</span>
+              <span class="chip"><i></i> React Hook Form</span>
+              <span class="chip"><i></i> Zod</span>
+              <span class="chip"><i></i> Recharts</span>
+            </div>
+          </article>
+          <article class="card skill fade" style="--d: 4; --tone: #0f766e; --tint: #e6f6f4">
+            <span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 7V5h8v2M8 17v2h8v-2" /></svg></span>
+            <h3>API</h3>
+            <p>The commerce backend, not a general backend claim.</p>
+            <div class="tech">
+              <span class="chip"><i></i> Node.js</span>
+              <span class="chip"><i></i> Express</span>
+              <span class="chip"><i></i> MongoDB</span>
+              <span class="chip"><i></i> JWT</span>
+            </div>
+          </article>
+          <article class="card skill fade" style="--d: 5; --tone: #7c3aed; --tint: #f3eefe">
+            <span class="tile" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V7z" /></svg></span>
+            <h3>Platforms</h3>
+            <p>Odoo for the pharmacy app, Docker for the dashboard image.</p>
+            <div class="tech">
+              <span class="chip"><i></i> Python</span>
+              <span class="chip"><i></i> Odoo 18</span>
+              <span class="chip"><i></i> Docker</span>
+              <span class="chip"><i></i> Git</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="contact">
+        <div class="layout">
+          <div class="card fade" style="--d: 1">
+            <p class="eyebrow">Contact</p>
+            <h2>Email me directly</h2>
+            <p class="body">
+              This form opens your email app with the message filled in. The
+              site does not store it, and it will not say the message was sent
+              unless your mail app actually opens.
+            </p>
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+                <p class="error" id="name-error" hidden></p>
               </div>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <p class="error" id="email-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" autocomplete="off" required />
+                <p class="error" id="subject-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <p class="error" id="message-error" hidden></p>
+              </div>
+              <button class="btn btn-primary" type="submit">Open email app</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <aside class="card contact-card fade" style="--d: 2">
+            <h3>Amr Mahmoud</h3>
+            <p class="body">Front-end React developer in Assiut, Egypt.</p>
+            <ul class="details">
+              <li>
+                <span class="tile" style="--tone: #1d5bd8; --tint: #e8f0fd" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+                </span>
+                <a href="mailto:mamr32278@gmail.com">mamr32278@gmail.com</a>
+              </li>
+              <li>
+                <span class="tile" style="--tone: #0f766e; --tint: #e6f6f4" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 3h8l1 4v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V7zM10 18h4" /></svg>
+                </span>
+                <a href="tel:+201069513679">010 6951 3679</a>
+              </li>
+              <li>
+                <span class="tile" style="--tone: #d97706; --tint: #fff5e1" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                </span>
                 <span>Assiut, Egypt</span>
-              </div>
+              </li>
+            </ul>
+            <div class="social">
+              <a class="icon-btn" href="https://github.com/a-mfarghly" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.1-1.5 6.1-6.6a5.1 5.1 0 0 0-1.4-3.5 4.7 4.7 0 0 0-.1-3.5s-1.1-.3-3.6 1.4a12.3 12.3 0 0 0-6.2 0C6.4 2.6 5.3 2.9 5.3 2.9a4.7 4.7 0 0 0-.1 3.5A5.1 5.1 0 0 0 3.8 9.9c0 5.1 3.1 6.3 6.1 6.6a3.4 3.4 0 0 0-.9 2.6V21" /></svg>
+              </a>
+              <a class="icon-btn" href="https://www.linkedin.com/in/amr-m-farghly-885053279" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v12M6 4v.1M10 21V9m0 4.5c0-2 1.5-4.5 4.5-4.5S19 11.5 19 13.5V21" /></svg>
+              </a>
+              <a class="icon-btn" href="https://x.com/amrmahm14839311" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
+              </a>
+              <a class="icon-btn" href="https://www.instagram.com/amr_mahmoud_farghly" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r=".6" /></svg>
+              </a>
             </div>
-            <div class="social-links">
-              <a href="https://github.com/a-mfarghly" class="social-link"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/amr-m-farghly-885053279"
-                class="social-link"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="https://x.com/amrmahm14839311" class="social-link"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/amr_mahmoud_farghly?igsh=YzljYTk1ODg3Zg=="
-                class="social-link"
-                ><i class="fab fa-instagram"></i
-              ></a>
-            </div>
-          </div>
-          <form class="contact-form">
-            <div class="form-group">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Subject"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your Message"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
+          </aside>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 amr mahmoud. All rights reserved.</p>
+      <div class="footer-inner">
+        <p>© 2026 Amr Mahmoud. Assiut, Egypt.</p>
+        <a href="mailto:mamr32278@gmail.com">mamr32278@gmail.com</a>
       </div>
     </footer>
 
